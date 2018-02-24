@@ -1,0 +1,19 @@
+{
+    "name": "acanoen/framework",
+    "description": "Framework Alex' Can'",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex' Can'",
+            "email": "contact@acanoen.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Framework\\": "core/"
+        }
+    },
+    "require": {}
+}
