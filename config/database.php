@@ -28,7 +28,7 @@ return [
      */
     "auth" => [
         "username" => "root",
-        "password" => "root"
+        "password" => "root",
     ],
 
     /**
