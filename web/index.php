@@ -10,5 +10,3 @@ define('ROOT', dirname(__DIR__));
 require ROOT.'/vendor/autoload.php';
 
 $app = \App\General::getInstance();
-
-var_dump($app);
