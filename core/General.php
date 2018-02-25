@@ -33,5 +33,7 @@ class General
      */
     public function __construct()
     {
+        $app = new \Framework\Environment\AppConfig();
+        var_dump($app->getAll());
     }
 }
