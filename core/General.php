@@ -9,6 +9,8 @@
 namespace Framework;
 
 
+use Framework\Environment\AppConfig;
+
 class General
 {
     /**
@@ -33,7 +35,7 @@ class General
      */
     public function __construct()
     {
-        $app = new \Framework\Environment\AppConfig();
-        var_dump($app->getAll());
+        $appconf = new AppConfig("app");
+        var_dump($appconf->get("name", "key", "env", "mdr"));
     }
 }
