@@ -14,7 +14,7 @@ return [
     "engine" => "mysql",
 
     /**
-     * Host and its communication port (eg. localhost:3306)
+     * Host of your database with the communication port (eg. localhost:3306)
      */
     "host" => "localhost:3306",
 

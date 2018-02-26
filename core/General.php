@@ -9,7 +9,7 @@
 namespace Framework;
 
 
-use Framework\Environment\AppConfig;
+use Framework\Environment\Config;
 
 class General
 {
@@ -17,6 +17,11 @@ class General
      * @var General
      */
     private static $_instance;
+
+    /**
+     * @var array Data from the Config class
+     */
+    private $config = [];
 
     /**
      * @return General
@@ -35,7 +40,33 @@ class General
      */
     public function __construct()
     {
-        $appconf = new AppConfig("app");
-        var_dump($appconf->get("name", "key", "env", "mdr"));
+        $appConf = new Config("app");
+        $dbConf = new Config("database");
+        $mailConf = new Config("mail");
+
+        $this->config["general"] = $appConf->get();
+        $this->config["database"] = $dbConf->get();
+        $this->config["mail"] = $mailConf->get();
+    }
+
+    /**
+     * @param $key
+     * @return mixed|null
+     */
+    public function getKey($key)
+    {
+        if(array_key_exists($this->config, $key))
+        {
+            return $this->config[$key];
+        }
+        return null;
+    }
+
+    /**
+     * @return array
+     */
+    public function getConf()
+    {
+        return $this->config;
     }
 }

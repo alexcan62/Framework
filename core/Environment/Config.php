@@ -9,39 +9,26 @@
 namespace Framework\Environment;
 
 
-abstract class Config
+class Config
 {
     /**
      * @var array Data from the config file
      */
     private $array = [];
 
+    /**
+     * Config constructor.
+     * @param $file
+     */
     public function __construct($file)
     {
         $this->array = require ROOT.'/config/'.$file.'.php';
     }
 
     /**
-     * @param $key
      * @return mixed
      */
-    public function get(...$key)
-    {
-        $data = [];
-        foreach ($key as $k)
-        {
-            if (array_key_exists($k, $this->array))
-            {
-                array_push($data, [$k => $this->array[$k]]);
-            }
-        }
-        return $data;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAll()
+    public function get()
     {
         return $this->array;
     }

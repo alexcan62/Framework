@@ -36,5 +36,6 @@ class General
     public function __construct()
     {
         $this->core = Framework::getInstance();
+        var_dump($this->core->getConf());
     }
 }
