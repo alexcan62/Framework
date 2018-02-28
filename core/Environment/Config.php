@@ -12,9 +12,9 @@ namespace Framework\Environment;
 class Config
 {
     /**
-     * @var array Data from the config file
+     * @var array
      */
-    private $array = [];
+    public $file = [];
 
     /**
      * Config constructor.
@@ -22,14 +22,7 @@ class Config
      */
     public function __construct($file)
     {
-        $this->array = require ROOT.'/config/'.$file.'.php';
-    }
-
-    /**
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->array;
+        $this->file = require ROOT.'/config/'.$file.'.php';
+        return $this->file;
     }
 }

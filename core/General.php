@@ -9,6 +9,7 @@
 namespace Framework;
 
 
+use Framework\Database\MySQL;
 use Framework\Environment\Config;
 
 class General
@@ -17,6 +18,11 @@ class General
      * @var General
      */
     private static $_instance;
+
+    /**
+     * @var \Framework\Database\MySQL
+     */
+    private $db;
 
     /**
      * @var array Data from the Config class
@@ -40,13 +46,9 @@ class General
      */
     public function __construct()
     {
-        $appConf = new Config("app");
-        $dbConf = new Config("database");
-        $mailConf = new Config("mail");
-
-        $this->config["general"] = $appConf->get();
-        $this->config["database"] = $dbConf->get();
-        $this->config["mail"] = $mailConf->get();
+        $this->config['app'] = new Config("app");
+        $this->config['database'] = new Config("database");
+        $this->config['mail'] = new Config("mail");
     }
 
     /**
@@ -68,5 +70,14 @@ class General
     public function getConf()
     {
         return $this->config;
+    }
+
+    public function getDb()
+    {
+        if (is_null($this->db))
+        {
+            $this->db = new MySQL();
+        }
+        return $this->db;
     }
 }

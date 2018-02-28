@@ -19,6 +19,11 @@ class General
     private static $_instance;
 
     /**
+     * @var Framework
+     */
+    private $core;
+
+    /**
      * @return General
      */
     public static function getInstance()
@@ -36,6 +41,13 @@ class General
     public function __construct()
     {
         $this->core = Framework::getInstance();
-        var_dump($this->core->getConf());
+    }
+
+    /**
+     * @return Framework
+     */
+    public function getCore()
+    {
+        return $this->core;
     }
 }

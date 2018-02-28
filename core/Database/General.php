@@ -23,7 +23,6 @@ class General
      */
     public function __construct()
     {
-        $dbConf = new Config("database");
-        $this->config = $dbConf->get();
+        $this->config = new Config("database");
     }
 }
