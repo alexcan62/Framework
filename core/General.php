@@ -72,6 +72,9 @@ class General
         return $this->config;
     }
 
+    /**
+     * @return MySQL
+     */
     public function getDb()
     {
         if (is_null($this->db))
